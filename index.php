@@ -11,22 +11,18 @@ $dotenv->load();
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 switch ($uri) {
-  case '/':
-    include_once __DIR__ . '/index.html';
-    break;
   case '/reset':
     if (isset($_POST['admin']) && isset($_POST['admin-password']) && isset($_POST['user']) && isset($_POST['user-password'])) {
       $adService = new ActiveDirectoryService();
       if ($adService->resetPassword($_POST['admin'], $_POST['admin-password'], $_POST['user'], $_POST['user-password'])) {
-        $_SESSION['message'] = "Senha alterada com sucesso!";
+        $_SESSION['message'] = "Password changed successfully";
       } else {
-        $_SESSION['message'] = "Erro ao alterar senha!";
+        $_SESSION['message'] = "Error changing password";
       }
       header("Location: /");
       exit;
     } else {
       header("Location: /");
-      echo "ERRO";
       exit;
     }
 }
@@ -90,7 +86,7 @@ switch ($uri) {
   if (@$_SESSION['message']) {
     $message = $_SESSION['message'];
     $success = '';
-    if (str_contains($message, 'sucesso')) {
+    if (str_contains($message, 'successfully')) {
       echo "<div class='message-div success-msg'><i class='fa-solid fa-check-double message-icon'></i><span>$message</span><i class='fa-solid fa-x message-x' id='deleteMessageButton'></i></div>";
     } else {
 

@@ -8,7 +8,6 @@
   --custom-red: #ba1e23;
   --error-light-red: #ffebe9;
   --custom-green: #058d3f;
-  --custom-blue: #0b57d0;
   --container-bg: #f0f4f9;
   /* --container-bg: #ffffff; */
   --content-w: 360px;
@@ -123,7 +122,7 @@ body {
   background-color: var(--error-light-red);
   color: var(--custom-red);
   position: absolute;
-  margin-top: 500px;
+  margin-top: 410px;
 }
 
 .message-div > span {
@@ -171,7 +170,7 @@ body {
 }
 
 .input-div .pass-form-input:focus ~ .floating-label {
-  color: var(--custom-blue);
+  color: var(--custom-green);
 }
 
 .input-div .incorrect-form-input:focus ~ .floating-label {
@@ -183,7 +182,7 @@ body {
 }
 
 .pass-form-input:focus {
-  outline: var(--custom-blue) 2.5px solid;
+  outline: var(--custom-green) 2.5px solid;
 }
 
 .incorrect-form-input:focus {
@@ -192,7 +191,7 @@ body {
 
 .form-button {
   /* margin-top: 2vh; */
-  background-color: var(--custom-blue);
+  background-color: var(--custom-green);
   color: var(--custom-light);
   width: 100%;
   padding: 12px 12px;

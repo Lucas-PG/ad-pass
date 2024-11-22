@@ -17,11 +17,11 @@ class ActiveDirectoryService
    **/
   private function connect(string $admin, string $adminPassword): bool
   {
-    $this->ldap = ldap_connect($_ENV['AD_HOST']);
+    $this->ldap = ldap_connect("ldaps://" . $_ENV['AD_HOST'] . ":636");
     ldap_set_option($this->ldap, LDAP_OPT_PROTOCOL_VERSION, 3);
     ldap_set_option($this->ldap, LDAP_OPT_REFERRALS, 0);
 
-    $ad_bind_dn = explode("@", $admin)[0] . '@' . $_ENV['AD_DOMAIN'];
+    $ad_bind_dn = explode("@", $admin)[0] . '@' . $_ENV['AD_HOST'];
 
     $ldapbind = ldap_bind(
       $this->ldap,
@@ -65,7 +65,7 @@ class ActiveDirectoryService
   public function resetPassword(string $admin, string $adminPassword, string $login, string $newPassword): bool
   {
     if (!$this->connect($admin, $adminPassword)) {
-      $_SESSION['message'] = "Não foi possível se conectar ao AD";
+      $_SESSION['message'] = "Error connecting to Active Directory";
       header("Location: /");
       exit;
     }
