@@ -1,0 +1,228 @@
+:root {
+  --custom-light: #ffffff;
+  /* --custom-light: #f7f7f7; */
+  --custom-dark: #0d0d0d;
+  --custom-border: #d9d9d9;
+  --custom-error-red: #ff3333;
+  --custom-gray: #787878;
+  --custom-red: #ba1e23;
+  --error-light-red: #ffebe9;
+  --custom-green: #058d3f;
+  --custom-blue: #0b57d0;
+  --container-bg: #f0f4f9;
+  /* --container-bg: #ffffff; */
+  --content-w: 360px;
+  --success-light-green: #ccf2d5;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--custom-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  min-width: 280px;
+  min-height: 500px;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+.container {
+  /* height: 300px; */
+  width: var(--content-w);
+  border-radius: 5px;
+  display: flex;
+  border: 1.5px solid var(--custom-border);
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  align-items: center;
+  background-color: var(--container-bg);
+  position: relative;
+  gap: 2vh;
+}
+
+.container--span {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--custom-dark);
+  text-align: center;
+}
+
+.container--form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  height: 80%;
+}
+
+.container--form > form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+.input-div {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  /* margin-top: 2vh; */
+}
+
+
+.input-eye-div {
+  position: absolute;
+  right: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.input-eye {
+  position: absolute;
+  right: 5px;
+}
+
+.pass-form-input {
+  border: 1px solid var(--custom-border);
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 5px 12px;
+  min-height: 32px;
+  max-height: 32px;
+  width: 100%;
+}
+
+.message-div {
+  width: var(--content-w);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border: var(--custom-red) solid 1px;
+  border-radius: 10px;
+  /* margin-top: 1rem; */
+  background-color: var(--error-light-red);
+  color: var(--custom-red);
+  position: absolute;
+  margin-top: 500px;
+}
+
+.message-div > span {
+  width: 85%;
+  text-align: center;
+}
+
+.success-msg {
+  color: var(--custom-green);
+  border: var(--custom-green) solid 1px;
+  background-color: var(--success-light-green);
+}
+
+.message-x {
+  position: absolute;
+  right: 2.5%;
+  cursor: pointer;
+  font-size: 12px;
+  width: 5%;
+}
+
+.message-icon {
+  width: 5%;
+  left: 2.5%;
+}
+
+.input-div .floating-label {
+  position: absolute;
+  pointer-events: none;
+  top: 30%;
+  left: 5%;
+  transition: 0.2s ease all;
+  color: var(--custom-gray);
+  z-index: 100000;
+  padding: 0px 3px;
+}
+
+.input-div input:focus ~ .floating-label,
+.input-div input:not(:focus):valid ~ .floating-label {
+  top: -15%;
+  left: 5%;
+  font-size: 13px;
+  opacity: 1;
+  background-color: #ffffff;
+}
+
+.input-div .pass-form-input:focus ~ .floating-label {
+  color: var(--custom-blue);
+}
+
+.input-div .incorrect-form-input:focus ~ .floating-label {
+  color: var(--custom-red);
+}
+
+.input-div input:not(:focus):valid ~ .floating-label {
+  color: var(--custom-gray);
+}
+
+.pass-form-input:focus {
+  outline: var(--custom-blue) 2.5px solid;
+}
+
+.incorrect-form-input:focus {
+  outline: var(--custom-red) 2px solid;
+}
+
+.form-button {
+  /* margin-top: 2vh; */
+  background-color: var(--custom-blue);
+  color: var(--custom-light);
+  width: 100%;
+  padding: 12px 12px;
+  min-height: 32px;
+  font-size: 110%;
+  border: 0px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.form-button:hover {
+  /* transform: scale(1.01); */
+  filter: brightness(85%);
+}
+
+.form-button:active {
+  filter: brightness(100%);
+}
+
+@media screen and (max-width: 420px) {
+  :root {
+    --content-w: 288px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  :root {
+    --content-w: 250px;
+  }
+
+  body {
+    font-size: 14px;
+  }
