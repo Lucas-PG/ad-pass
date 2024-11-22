@@ -17,4 +17,4 @@ Not very useful, since someone that knows an admin account may change an user's 
 
 ## Application
 
-[!alt img](https://github.com/Lucas-PG/ad-password/blob/main/public/images/app-png.png)
+![alt img](https://github.com/Lucas-PG/ad-password/blob/main/public/images/app-png.png)
